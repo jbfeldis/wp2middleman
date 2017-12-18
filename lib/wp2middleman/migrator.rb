@@ -1,4 +1,5 @@
 require 'yaml'
+require 'fileutils'
 
 module WP2Middleman
   class Migrator
