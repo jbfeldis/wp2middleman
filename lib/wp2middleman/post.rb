@@ -21,7 +21,10 @@ module WP2Middleman
     end
 
     def field(field)
-      post.xpath(field).first.inner_text
+      node = post.xpath(field).first
+      return node.inner_text if node
+      meta = post.xpath("//wp:meta_key[contains(text(), '#{field}')]/..//wp:meta_value").first
+      return meta.content if meta
     end
 
     def post_date
