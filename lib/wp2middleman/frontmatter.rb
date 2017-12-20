@@ -17,7 +17,7 @@ module WP2Middleman
       data['published'] = false if !post.published?
 
       include_fields.each do |field|
-        field = field.split(':')
+        field = field.split('#')
         data[field.last] = post.field(field.first)
       end
 
