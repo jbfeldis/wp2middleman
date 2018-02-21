@@ -23,7 +23,7 @@ module WP2Middleman
     def field(field)
       node = post.xpath(field).first
       return node.inner_text if node
-      meta = post.xpath("//wp:meta_key[contains(text(), '#{field}')]/..//wp:meta_value").first
+      meta = post.xpath(".//wp:meta_key[contains(text(), '#{field}')]/..//wp:meta_value").first
       return meta.content if meta
     end
 
